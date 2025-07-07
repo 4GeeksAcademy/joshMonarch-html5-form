@@ -1,0 +1,11 @@
+.form-label {
+  font-weight: 500 !important;
+}
+
+fieldset {
+  padding-top: 10px !important;
+}
+
+.form-check > fieldset {
+  padding-top: 0 !important;
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 Form</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+      integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container-fluid px-4 pt-3">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <h5 class="card-header">Payment form example</h5>
+            <div class="card-body">
+              <div class="alert alert-danger alert-dismissible d-none" role="alert">
+                Some fields are missing
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+              </div>
+              <form class="container" id="payment" novalidate>
+                <div class="row">
+                  <fieldset class="col-5">
+                    <label for="cardNumber" class="form-label">Card #</label>
+                    <input
+                      class="form-control"
+                      id="cardNumber"
+                      type="text"
+                      placeholder="xxxxxxxxxxxxxxxx"
+                      minlength="16"
+                      maxlength="16"
+                      pattern="[0-9]+"
+                      title="Only numbers allowed"
+                      required
+                    />
+                  </fieldset>
+                  <fieldset class="col-3">
+                    <label for="cvcNumber" class="form-label">CVC #</label>
+                    <input
+                      class="form-control"
+                      id="cvcNumber"
+                      type="text"
+                      placeholder="0000"
+                      minlength="3"
+                      maxlength="4"
+                      pattern="[0-9]+"
+                      title="Only numbers allowed"
+                      required
+                    />
+                  </fieldset>
+                  <fieldset class="col-4">
+                    <label for="amount" class="form-label">Amount: </label>
+                    <div class="input-group">
+                      <span class="input-group-text "><i class="fa-solid fa-dollar-sign"></i></span>
+                      <input
+                        class="form-control"
+                        id="amount"
+                        type="number"
+                        placeholder="Amount"
+                        min="5"
+                        pattern="[0-9]+"
+                        title="Only numbers allowed"
+                        required
+                      />
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <fieldset>
+                      <label for="firstName" class="form-label"
+                        >First Name</label>
+                      <input 
+                        type="text" 
+                        id="firstName" 
+                        class="form-control" 
+                        minlength="4" 
+                        maxlength="15" 
+                        pattern="[A-Za-z]+"
+                        title="Only letters allowed" 
+                        required />
+                    </fieldset>
+                    <fieldset>
+                      <label for="city" class="form-label">City</label>
+                      <input 
+                        type="text" 
+                        id="city" 
+                        class="form-control" 
+                        minlength="3" 
+                        maxlength="169" 
+                        pattern="[A-Za-z]+"
+                        title="Only letters allowed" 
+                        required />
+                    </fieldset>
+                    <fieldset class="w-50" id="card">
+                      <label class="form-label">We accept:
+                      </label>
+                      <div
+                        class="form-check bg-secondary p-2 rounded d-flex justify-content-around"
+                      >
+                        <fieldset>
+                          <input type="radio" name="card" checked required />
+                          <label class="form-check-label" for="card"
+                            ><i
+                              class="fa-brands fa-cc-mastercard text-white"
+                            ></i
+                          ></label>
+                        </fieldset>
+                        <fieldset>
+                          <input type="radio" name="card" required />
+                          <label class="form-check-label" for="card"
+                            ><i class="fa-brands fa-cc-visa text-white"></i
+                          ></label>
+                        </fieldset>
+                        <fieldset>
+                          <input type="radio" name="card" required />
+                          <span class="form-check-label" for="card"
+                            ><i
+                              class="fa-brands fa-cc-diners-club text-white"
+                            ></i
+                          ></span>
+                        </fieldset>
+                        <fieldset>
+                          <input type="radio" name="card" required />
+                          <label class="form-check-label" for="card"
+                            ><i class="fa-solid fa-credit-card text-white"></i
+                          ></label>
+                        </fieldset>
+                      </div>
+                    </fieldset>
+                  </div>
+                  <div class="col-6">
+                    <fieldset>
+                      <label for="lastName" class="form-label">Last Name</label>
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        minlength="4" 
+                        maxlength="15" 
+                        pattern="[A-Za-z]+"
+                        title="Only letters allowed" 
+                        required />
+                    </fieldset>
+                    <div class="d-flex justify-content-between gap-4">
+                      <fieldset class="w-50">
+                        <label for="state" class="form-label">State</label>
+                        <select class="form-select" name="pickState" id="state" required>
+                          <option value=""  selected disabled>Pick a state</option>
+                          <option value="1">Florida</option>
+                          <option value="2">Wyoming</option>
+                          <option value="3">Texas</option>
+                        </select>
+                      </fieldset>
+                      <fieldset class="w-50">
+                        <label for="zip" class="form-label">Postal Code</label>
+                        <input 
+                            type="text" 
+                            id="zip" 
+                            class="form-control" 
+                            pattern="[A-Za-z0-9]+"
+                            title="Only letters allowed" 
+                            required />
+                      </fieldset>
+                    </div>
+                    <fieldset>
+                      <label for="message" class="form-label">Message</label>
+                      <br />
+                      <textarea
+                        class="w-100"
+                        rows="3"
+                        name="msg"
+                        id="message"
+                        required
+                      ></textarea>
+                      <br />
+                      <small class="form-text">Add any notes here</small>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-footer d-flex justify-content-end gap-2" role="group">
+                <button type="reset" class="btn btn-secondary" form="payment">Cancel</button>
+                <button type="submit" class="btn btn-primary" form="payment">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+      integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
